@@ -45,18 +45,19 @@ public class Main {
         for (int i = 0; i < sayilar2.length; i++) {
             sayilar2[i] = rd.nextInt(100) + 1;  // 1 ile 100 arasında sayılar
         }
-
-        System.out.println("Rastgele Sayılar:");
-        for (int number : sayilar2) {
-            System.out.print(number + " ");
+        for (int i = 0; i < sayilar2.length - 1; i++) {
+            for (int j = 0; j < sayilar2.length - 1 - i; j++) {
+                if (sayilar2[j] > sayilar2[j + 1]) {
+                    // Sayıları yer değiştiriyoruz
+                    int temp = sayilar2[j];
+                    sayilar2[j] = sayilar2[j + 1];
+                    sayilar2[j + 1] = temp;
+                }
+            }
         }
-        System.out.println();
-
-        Arrays.sort(sayilar2);
-
-        System.out.println("Küçükten büyüğe sıralanan sayılar:");
-        for (int number : sayilar2) {
-            System.out.print(number + " ");
+        System.out.println("Küçükten Büyüğe Sıralama:");
+        for (int sayi : sayilar2) {
+            System.out.print(sayi + " ");
         }
     }
 }
